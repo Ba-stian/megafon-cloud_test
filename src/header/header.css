@@ -1,0 +1,43 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+}
+
+.layout {
+	background: #323232;
+}
+
+.container {
+	width: 960px;
+	margin: 0 auto;
+}
+
+.nav {
+	padding: 35px;
+}
+
+.nav_items {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	justify-content: space-around;
+}
+
+.navlink {
+	color: #fff;
+	font-size: 18px;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 15px 30px;
+	border-radius: 10px;
+}
+
+.navlink:hover {
+	box-shadow: 0 0 6px 2px #fff;
+}
+
+.active {
+	box-shadow: 0 0 6px #fff;
+}
