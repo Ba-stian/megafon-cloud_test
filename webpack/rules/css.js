@@ -5,7 +5,7 @@ const MiniCssExtraPlugin = require('mini-css-extract-plugin');
 const isDevelopment = process.env.NODE_ENV === 'development';
 
 const plugins = [
-	autoprefixer()
+	autoprefixer(),
 ];
 
 if (process.env.NODE_ENV !== 'development') {
@@ -24,7 +24,8 @@ module.exports = {
 			loader: 'css-loader',
 			options: {
 				importLoaders: 1,
-				modules: {localIdentName: '[name]__[local]__[hash:base64:5]'},
+				modules: true,
+				localIdentName: '[name]__[local]__[hash:base64:5]',
 			},
 		},
 		{
@@ -35,4 +36,3 @@ module.exports = {
 		},
 	],
 };
-
