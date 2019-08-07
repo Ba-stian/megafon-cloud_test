@@ -6,6 +6,7 @@ class Books extends Component {
 	state = {
 		visibleBooks: mockdata,
 		expand: false,
+		direction: 'desc',
 	};
 
 
@@ -17,11 +18,34 @@ class Books extends Component {
 	};
 
 
+	sortItems(e, sortKey) {
+		const { visibleBooks, direction } = this.state;
+		if (direction === 'desc') {
+			if (sortKey === 'popularity') {
+				visibleBooks.sort((a, b) => a[sortKey] - b[sortKey]);
+			} else {
+				visibleBooks.sort((a, b) => a[sortKey].localeCompare(b[sortKey]));
+			}
+			this.setState({ direction: 'asc' });
+		} else {
+			if (sortKey === 'popularity') {
+				visibleBooks.sort((a, b) => b[sortKey] - a[sortKey]);
+			} else {
+				visibleBooks.sort((a, b) => b[sortKey].localeCompare(a[sortKey]));
+			}
+			this.setState({ direction: 'desc' });
+		}
+
+
+		this.setState({ visibleBooks });
+	}
+
+
 	renderTable() {
 		const { expand, visibleBooks } = this.state;
 		const table = expand ? visibleBooks : visibleBooks.slice(0, 250);
 		return table.map(({ title, author, popularity }) => (
-			<tr key={author} className={books.rows}>
+			<tr key={Math.random()} className={books.rows}>
 				<td className={books.cells}>{title}</td>
 				<td className={books.cells}>{author}</td>
 				<td className={books.cells}>{popularity}</td>
@@ -38,9 +62,33 @@ class Books extends Component {
 					<caption className={books.caption}>Рейтинг книг</caption>
 					<thead>
 						<tr>
-							<td className={books.header}>Название</td>
-							<td className={books.header}>Автор</td>
-							<td className={books.header}>Популярность</td>
+							<td>
+								<button
+									className={books.sort_btn}
+									type="button"
+									onClick={e => this.sortItems(e, 'title')}
+								>
+									Название
+								</button>
+							</td>
+							<td>
+								<button
+									className={books.sort_btn}
+									type="button"
+									onClick={e => this.sortItems(e, 'author')}
+								>
+									Автор
+								</button>
+							</td>
+							<td>
+								<button
+									className={books.sort_btn}
+									type="button"
+									onClick={e => this.sortItems(e, 'popularity')}
+								>
+									Популярность
+								</button>
+							</td>
 						</tr>
 					</thead>
 					<tbody>

@@ -11,11 +11,14 @@
 	padding: 10px 0;
 }
 
-.header {
+.sort_btn {
 	font-size: 18px;
 	font-weight: bold;
 	padding: 10px 0;
 	cursor: pointer;
+	border: none;
+	outline: none;
+	background: transparent;
 }
 
 .rows {
