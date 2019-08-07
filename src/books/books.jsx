@@ -10,6 +10,7 @@ class Books extends Component {
 	};
 
 
+	/* изменяет флаг expand, если true, то отображается весь массив книг, если false, то первые 250 */
 	onClick = () => {
 		const { expand } = this.state;
 		this.setState({
@@ -17,6 +18,8 @@ class Books extends Component {
 		});
 	};
 
+	/* сортировка по возрастанию и убыванию, использующая ключ объекта.
+	исключение для популярности, т.к. не строка */
 
 	sortItems(e, sortKey) {
 		const { visibleBooks, direction } = this.state;
@@ -40,6 +43,7 @@ class Books extends Component {
 		this.setState({ visibleBooks });
 	}
 
+	/* метод отрисовки таблицы */
 
 	renderTable() {
 		const { expand, visibleBooks } = this.state;
