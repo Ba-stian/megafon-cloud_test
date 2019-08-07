@@ -1,0 +1,57 @@
+.authors {
+	height: 100vh;
+}
+
+.form_group {
+	width: 50%;
+	margin: 0 auto;
+	padding-bottom: 50px;
+}
+
+.form {
+	width: 60%;
+	margin: 0 auto;
+	position: relative;
+}
+
+.input {
+	width: 100%;
+	border: none;
+	outline: none;
+	padding: 10px 42px 10px 15px;
+	font-size: 20px;
+}
+
+.btn {
+	background: url("./loupe.svg");
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	background-size: 100%;
+	border: none;
+	outline: none;
+	top: 6px;
+	right: -51px;
+}
+
+.books {
+	width: 60%;
+	background: #fff;
+	border-radius: 10px;
+	padding: 30px;
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+}
+
+.filtred_books {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	border-bottom: 1px solid #919191;
+}
+
+.filtred_book {
+	text-transform: capitalize;
+	padding: 5px 0;
+}
