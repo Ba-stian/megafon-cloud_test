@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import login from './login.css';
 
 class Login extends Component {
@@ -17,9 +18,13 @@ class Login extends Component {
 		});
 	};
 
+	/* функция авторизации, данные записанные в стэйт сохраняем,
+	чтобы передать в родительский компонент */
 	onLogin = (e) => {
 		e.preventDefault();
 		const { email, password } = this.state;
+		const data = [email, password];
+		const { onLogin } = this.props;
 		if (!email && !password) {
 			return;
 		}
@@ -34,6 +39,7 @@ class Login extends Component {
 				email: '',
 			});
 		}
+		onLogin(data);
 	};
 
 	render() {
@@ -71,5 +77,9 @@ class Login extends Component {
 		);
 	}
 }
+
+Login.propTypes = {
+	onLogin: PropTypes.func.isRequired,
+};
 
 export default Login;

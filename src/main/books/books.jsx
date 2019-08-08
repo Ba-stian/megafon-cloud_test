@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import mockdata from './mockdata.json';
 import books from './books.css';
 
@@ -47,12 +48,19 @@ class Books extends Component {
 
 	renderTable() {
 		const { expand, visibleBooks } = this.state;
+		const { isLogged } = this.props;
 		const table = expand ? visibleBooks : visibleBooks.slice(0, 250);
 		return table.map(({ title, author, popularity }) => (
 			<tr key={Math.random()} className={books.rows}>
 				<td className={books.cells}>{title}</td>
 				<td className={books.cells}>{author}</td>
 				<td className={books.cells}>{popularity}</td>
+				{isLogged && (
+					<React.Fragment>
+						<button type="button">Добавить комментарий</button>
+					</React.Fragment>
+				)
+				}
 			</tr>
 		));
 	}
@@ -108,5 +116,9 @@ class Books extends Component {
 		);
 	}
 }
+
+Books.propTypes = {
+	isLogged: PropTypes.bool.isRequired,
+};
 
 export default Books;
