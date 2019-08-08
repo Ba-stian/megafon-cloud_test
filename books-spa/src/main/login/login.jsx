@@ -36,10 +36,8 @@ class Login extends Component {
 	};
 
 	render() {
-		const {
-			email, password, errorMessage, isLogged,
-		} = this.state;
-		const {error} = this.props;
+		const { email, password, errorMessage } = this.state;
+		const { error, isLogged } = this.props;
 		return (
 			<div className={login.login}>
 				<div className={login.form_group}>
@@ -75,6 +73,7 @@ class Login extends Component {
 Login.propTypes = {
 	onLogin: PropTypes.func.isRequired,
 	error: PropTypes.bool.isRequired,
+	isLogged: PropTypes.bool.isRequired,
 };
 
 export default Login;

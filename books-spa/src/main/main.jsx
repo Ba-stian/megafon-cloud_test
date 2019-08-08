@@ -7,7 +7,7 @@ import Profile from './profile';
 import Login from './login';
 import main from './main.css';
 
-const Main = props => (
+const Main = ({ ...props }) => (
 	<main>
 		<div className={main.layout}>
 			<div className={main.container}>
@@ -15,7 +15,7 @@ const Main = props => (
 				<Route path="/books" render={() => <Books isLogged={props.isLogged} />} />
 				<Route path="/authors" component={Authors} />
 				<Route path="/profile" render={() => <Profile isLogged={props.isLogged} />} />
-				<Route path="/login" render={() => <Login onLogin={props.onLogin} error={props.error} />} />
+				<Route path="/login" render={() => <Login {...props} />} />
 			</div>
 		</div>
 	</main>
