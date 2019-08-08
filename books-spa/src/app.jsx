@@ -19,7 +19,7 @@ class App extends Component {
 		}
 	};
 
-	logOut = () => {
+	onLogout = () => {
 		this.setState({
 			isLogged: false,
 		});
@@ -29,7 +29,7 @@ class App extends Component {
 		const { isLogged, error } = this.state;
 		return (
 			<div>
-				<Header isLogged={isLogged} logOut={this.logOut} />
+				<Header isLogged={isLogged} onLogout={this.onLogout} />
 				<Main onLogin={this.onLogin} error={error} isLogged={isLogged} />
 			</div>
 		);

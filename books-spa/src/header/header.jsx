@@ -5,7 +5,7 @@ import header from './header.css';
 
 
 const Header = (props) => {
-	const { isLogged, logOut } = props;
+	const { isLogged, onLogout } = props;
 	return (
 		<header>
 			<div className={header.layout}>
@@ -22,7 +22,7 @@ const Header = (props) => {
 								<NavLink to="/profile" className={header.navlink} activeClassName={header.active}>Профиль</NavLink>
 							</li>
 							<li>
-								{isLogged ? <NavLink to="/" className={header.navlink} onClick={logOut}>Выйти</NavLink>
+								{isLogged ? <NavLink to="/" className={header.navlink} onClick={onLogout}>Выйти</NavLink>
 									: <NavLink to="/login" className={header.navlink} activeClassName={header.active}>Войти</NavLink>}
 							</li>
 						</ul>
@@ -35,7 +35,7 @@ const Header = (props) => {
 
 Header.propTypes = {
 	isLogged: PropTypes.bool.isRequired,
-	logOut: PropTypes.func.isRequired,
+	onLogout: PropTypes.func.isRequired,
 };
 
 export default Header;
