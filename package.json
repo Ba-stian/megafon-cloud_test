@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-	  "start:ui": "NODE_ENV=development && webpack-dev-server --mode=development",
-	  "build": "NODE_ENV=production && webpack --mode=production",
-	  "test:ui": "npm run eslint && npm run stylelint",
-	  "eslint": "eslint --ext .js --ext .jsx src",
-	  "stylelint": "stylelint src/**/*.css"
+    "start:ui": "NODE_ENV=development && webpack-dev-server --mode=development",
+    "build": "NODE_ENV=production && webpack --mode=production",
+    "test:ui": "npm run eslint && npm run stylelint",
+    "eslint": "eslint --ext .js --ext .jsx src",
+    "stylelint": "stylelint src/**/*.css",
+	  "start": "node server.js"
   },
   "repository": {
     "type": "git",
