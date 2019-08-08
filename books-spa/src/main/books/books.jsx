@@ -57,7 +57,9 @@ class Books extends Component {
 				<td className={books.cells}>{popularity}</td>
 				{isLogged && (
 					<React.Fragment>
-						<button type="button">Добавить комментарий</button>
+						<td>
+							<button type="button">Добавить комментарий</button>
+						</td>
 					</React.Fragment>
 				)
 				}
