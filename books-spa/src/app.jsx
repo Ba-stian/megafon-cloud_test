@@ -6,6 +6,7 @@ import Main from './main';
 class App extends Component {
 	state = {
 		isLogged: false,
+		error: false,
 	};
 
 	onLogin = (data) => {
@@ -13,6 +14,8 @@ class App extends Component {
 			this.setState({
 				isLogged: true,
 			});
+		} else {
+			this.setState({ error: true });
 		}
 	};
 
@@ -23,11 +26,11 @@ class App extends Component {
 	};
 
 	render() {
-		const { isLogged } = this.state;
+		const { isLogged, error } = this.state;
 		return (
 			<div>
 				<Header isLogged={isLogged} logOut={this.logOut} />
-				<Main onLogin={this.onLogin} isLogged={isLogged} />
+				<Main onLogin={this.onLogin} error={error} isLogged={isLogged} />
 			</div>
 		);
 	}

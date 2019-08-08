@@ -7,7 +7,7 @@ class Login extends Component {
 	state = {
 		email: '',
 		password: '',
-		errorMessage: '',
+		errorMessage: 'Вы не зарегистрированы',
 		isLogged: false,
 	};
 
@@ -28,17 +28,10 @@ class Login extends Component {
 		if (!email && !password) {
 			return;
 		}
-		if (email === 'Admin' && password === '123') {
-			this.setState({
-				isLogged: true,
-			});
-		} else {
-			this.setState({
-				errorMessage: 'Вы не зарегистрированы',
-				password: '',
-				email: '',
-			});
-		}
+		this.setState({
+			password: '',
+			email: '',
+		});
 		onLogin(data);
 	};
 
@@ -46,12 +39,13 @@ class Login extends Component {
 		const {
 			email, password, errorMessage, isLogged,
 		} = this.state;
+		const {error} = this.props;
 		return (
 			<div className={login.login}>
 				<div className={login.form_group}>
 					<form className={login.form} onSubmit={this.onLogin}>
 						<h1 className={login.header}>Войдите на сайт</h1>
-						{errorMessage && <p className={login.error}>{errorMessage}</p>}
+						{error && <p className={login.error}>{errorMessage}</p>}
 						<input
 							type="text"
 							value={email}
@@ -80,6 +74,7 @@ class Login extends Component {
 
 Login.propTypes = {
 	onLogin: PropTypes.func.isRequired,
+	error: PropTypes.bool.isRequired,
 };
 
 export default Login;

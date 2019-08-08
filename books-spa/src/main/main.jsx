@@ -15,7 +15,7 @@ const Main = props => (
 				<Route path="/books" render={() => <Books isLogged={props.isLogged} />} />
 				<Route path="/authors" component={Authors} />
 				<Route path="/profile" render={() => <Profile isLogged={props.isLogged} />} />
-				<Route path="/login" render={() => <Login onLogin={props.onLogin} />} />
+				<Route path="/login" render={() => <Login onLogin={props.onLogin} error={props.error} />} />
 			</div>
 		</div>
 	</main>
@@ -24,6 +24,7 @@ const Main = props => (
 Main.propTypes = {
 	onLogin: PropTypes.func.isRequired,
 	isLogged: PropTypes.bool.isRequired,
+	error: PropTypes.bool.isRequired,
 };
 
 export default Main;
