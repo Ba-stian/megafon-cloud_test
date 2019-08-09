@@ -4,7 +4,7 @@
   "description": "",
   "main": "gulpfile.js",
   "scripts": {
-    "watch": "gulp watch",
+    "watch": "gulp watch"
   },
   "author": "Ba-stian",
   "license": "ISC",

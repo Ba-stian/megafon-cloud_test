@@ -40,6 +40,8 @@ $deepblue: #4985FF
   flex-direction: row
 .space-between
   justify-content: space-between
+.space-around
+  justify-content: space-around
 .align-base
   align-items: baseline
 
@@ -154,10 +156,11 @@ $deepblue: #4985FF
       @include fontStyle($small, $deepblue)
 .projects
   padding: 70px 0
-  display: flex
-  justify-content: space-around
   .project
     padding-right: 4%
+    &__group
+      display: flex
+      flex-direction: row
     &__number
       @include fontStyle($big, $black)
       padding: 0 0 17px 20px
@@ -312,4 +315,107 @@ $deepblue: #4985FF
   text-align: center
   padding: 30px 0
 
-
+@media screen and ("max-width": 1090px)
+  .container
+    width: 95%
+  .row
+    flex-wrap: wrap
+    margin: 0 auto
+  .works
+    height: 1600px
+  .work
+    margin: 0 auto
+    padding-bottom: 60px
+  .project
+    padding: 0 0 15px
+  .our-projects__img
+    margin: 0 auto
+    padding-bottom: 15px
+  .footer__column
+    margin: 0 auto
+@media screen and ("max-width": 985px)
+  .service
+    width: 275px
+    margin: 0 auto
+  .interface
+    &__content, &__img
+      margin: 0 auto
+      text-align: center
+  .works
+    &__info
+      flex-wrap: wrap
+      text-align: center
+    &_btn
+      margin: 0 auto
+@media screen and ("max-width": 740px)
+  .works
+    height: 2164px
+    &__info
+      &_btn
+        margin: 0 auto
+@media screen and ("max-width": 653px)
+  .interface__img
+    width: 80%
+    & img
+      width: 80%
+  .newline
+    display: inline
+  .subscribe
+    &__form
+      width: 60%
+      margin: 0 auto
+    &__btn
+      width: 99px
+  .nav__items
+    display: none
+  .header__info
+    &_header-first
+      width: 88%
+  .works
+    height: 2210px
+    &__info
+      &btn
+        margin: 0 auto
+  .mockplayer
+    &__icon
+      display: none
+    &__btn
+      display: none
+  .our-projects__img
+    width: 90%
+@media screen and ("max-width": 400px)
+  .works__info_paragraph, .header__info_header-first, .main__info_header
+    font-size: 20px
+  .work
+    width: 95%
+    height: auto
+  .container
+    width: 90%
+  .subscribe__btn
+    position: relative
+    border-radius: 30px
+    top: 0
+    right: 0
+    margin-top: 10px
+  .subscribe__input
+    width: 90%
+    padding-right: 0
+    padding-left: 8px
+@media screen and ("max-width": 301px)
+  .service
+    width: 90%
+    &__images
+      display: none
+    &__content
+      text-align: center
+  .works
+    height: 1824px
+  .work
+    &__img
+      width: 90%
+      margin: 0 auto
+    &__paragraph
+      height: auto
+    &__header
+      margin-top: 5px
+      margin-bottom: 15px
