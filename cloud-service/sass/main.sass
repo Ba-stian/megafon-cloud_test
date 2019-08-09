@@ -1,0 +1,315 @@
+@font-face
+  font-family: Montserratt, sans-serif
+  src: url("https://fonts.googleapis.com/css?family=Montserrat&display=swap")
+/*миксин*/
+@mixin fontStyle($size, $color)
+  font-size: $size
+  color: $color
+/* переменные*/
+$big: 36px
+$med: 18px
+$small: 16px
+$xsmall: 14px
+$black: #000
+$white: #fff
+$gray: #999
+$deepblue: #4985FF
+/*наследуемые стили*/
+%button-style
+  @include fontStyle($small, $white)
+  background: $deepblue
+  border-radius: 30px
+  border: none
+  outline: none
+  cursor: pointer
+  width: 200px
+  height: 45px
+
+/*сброс пользовательских стилей*/
+*
+  margin: 0
+  padding: 0
+  font-family: Montserratt, sans-serif
+/*стили структурных компонентов*/
+.container
+  max-width: 1200px
+  padding: 0 10px
+  margin: 0 auto
+.row
+  display: flex
+  flex-direction: row
+.space-between
+  justify-content: space-between
+.align-base
+  align-items: baseline
+
+/*основные стили*/
+.header-background
+  background: url("../img/header.svg") center no-repeat
+  background-size: cover
+  width: 100%
+  height: 900px
+.nav
+  width: 100%
+  height: 100px
+  border-bottom: 1px solid rgba(#a1a1a1, 0.5)
+  &__links
+    list-style: none
+    display: flex
+    float: right
+    padding: 42px 0
+  &__items
+    padding: 0 10px
+    &:last-child
+      padding-right: 0
+  &__link
+    @include fontStyle($small, $white)
+    text-decoration: none
+    padding: 40px 18px
+    &:hover
+      box-shadow: 0 1px 0 $white
+.header__info
+  padding-top: 220px
+  width: 100%
+  text-align: center
+  &_header-second
+    @include fontStyle($med, $white)
+    padding-bottom: 20px
+  &_header-first
+    @include fontStyle(48px, $white)
+    width: 48%
+    margin: 0 auto
+    line-height: 64px
+    padding-bottom: 50px
+  &_btn
+    @extend %button-style
+.main__info
+  text-align: center
+  width: 80%
+  margin: 0 auto
+  &_header
+    @include fontStyle($big, $black)
+    line-height: 53px
+    padding: 26px 0 15px
+  &_paragraph
+    @include fontStyle($small, $gray)
+    line-height: 25px
+.newline
+  display: block
+.services
+  display: flex
+  flex-direction: column
+  margin-top: 50px
+  margin-bottom: 120px
+.service
+  display: flex
+  flex-direction: row
+  width: 33%
+  padding-bottom: 50px
+  &__images
+    border-radius: 50%
+    border: 1px solid #4985FF
+    width: 38px
+    height: 38px
+    padding: 25px
+    position: relative
+    margin: 10px
+    &:after
+      border: 1px solid #e0e0e0
+      content: ''
+      position: absolute
+      top: -7px
+      left: -7px
+      height: 99px
+      width: 99px
+      border-radius: 50%
+  &__content
+    padding-top: 45px
+    &_header
+      padding-bottom: 12px
+      @include fontStyle($med, $black)
+      line-height: 22px
+    &_paragraph
+      @include fontStyle($xsmall, $gray)
+  &__btn
+    @extend %button-style
+    align-self: center
+.interface
+  padding-top: 100px
+  padding-bottom: 50px
+  border-bottom: 1px solid #E0E0E0
+  &-background
+    width: 100%
+    background: #F6F6F8
+  &__content
+    &-header
+      @include fontStyle($big, $black)
+      padding: 12px 0
+    &-paragraph
+      @include fontStyle($small, $gray)
+      text-align: center
+      line-height: 25px
+      padding-bottom: 20px
+    &-link
+      @include fontStyle($small, $deepblue)
+.projects
+  padding: 70px 0
+  display: flex
+  justify-content: space-around
+  .project
+    padding-right: 4%
+    &__number
+      @include fontStyle($big, $black)
+      padding: 0 0 17px 20px
+    &__paragraph
+      @include fontStyle($small, $gray)
+.works
+  padding: 0 0 85px
+  height: 903px
+  &__background
+    background: linear-gradient(90deg, #504DC2 20.44%, #5F12D0 80.91%), #C4C4C4
+    height: 490px
+  &__info
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 70px 0 100px
+    &_paragraph
+      @include fontStyle($big, $white)
+      line-height: 53px
+    &_btn
+      @extend %button-style
+  &__columns
+    padding-bottom: 85px
+    border-bottom: 1px solid #E0E0E0
+.work
+  display: flex
+  flex-direction: column
+  width: 350px
+  &__number
+    @include fontStyle($med, $deepblue)
+  &__header
+    @include fontStyle($med, $black)
+    margin-top: 30px
+    height: 46px
+    line-height: 22px
+  &__paragraph
+    @include fontStyle($small, $gray)
+    line-height: 25px
+    height: 117px
+    padding-bottom: 30px
+  &__link
+    @include fontStyle($small, $deepblue)
+.our-projects
+  padding: 100px 0 80px
+  text-align: center
+  &__background
+    background: #F6F6F8
+  &__info
+    &_header
+      @include fontStyle($big, $black)
+      padding-bottom: 50px
+    &_paragraph
+      @include fontStyle($small, $gray)
+      padding-bottom: 70px
+  &__btn
+    @extend %button-style
+    margin: 50px 0
+.video
+  height: 761px
+  &__background
+    background: url("../img/video.svg") no-repeat
+    background-size: cover
+    width: 100%
+    height: 570px
+  &__info
+    padding: 70px 0
+    text-align: center
+    &_header
+      @include fontStyle($big, $white)
+      padding-bottom: 30px
+    &_paragraph
+      @include fontStyle($small, $white)
+.mockplayer
+  max-width: 970px
+  position: relative
+  margin: 0 auto
+  padding-bottom: 85px
+  border-bottom: 1px solid #E0E0E0
+  &__img
+    width: 100%
+  &__btn
+    position: absolute
+    text-decoration: none
+    top: 32%
+    right: 35%
+    @include fontStyle($small, $white)
+    border: 1px solid $white
+    height: 100px
+    width: 260px
+    border-radius: 200px
+    padding-left: 40px
+  &__icon
+    position: relative
+    transform: translate(-13%, 36%)
+.subscribe
+  padding: 85px 0
+  text-align: center
+  &__header
+    @include fontStyle($med, $black)
+    padding-bottom: 20px
+  &__paragraph
+    @include fontStyle($small, $gray)
+    padding-bottom: 30px
+  &__form
+    position: relative
+    max-width: 490px
+    margin: 0 auto
+  &__input
+    padding: 15px 35px
+    box-shadow: 0 0 10px rgba(111, 111, 111, 0.25)
+    border-radius: 30px
+    border: 1px solid #F2F2F2
+    outline: none
+    width: 100%
+  &__btn
+    @extend %button-style
+    position: absolute
+    top: 1px
+    right: -71px
+    border-top-left-radius: 0
+    border-bottom-left-radius: 0
+  &__small
+    @include fontStyle(13px, $gray)
+    padding-top: 35px
+.footer
+  background: #F6F6F8
+  &__columns
+    padding: 70px 0
+    border-bottom: 1px solid #E0E0E0
+  &__column
+    width: 242px
+    &_header
+      @include fontStyle($med, $black)
+      padding-bottom: 35px
+    &_paragraph, &_link
+      @include fontStyle($xsmall, $gray)
+      padding-bottom: 30px
+    &_item
+      display: flex
+      align-items: end
+    &_paragraph
+      padding-left: 16px
+    &_icon
+      background: url("../img/arrow.svg")
+      background-size: 100%
+      width: 6px
+      height: 10px
+      display: inline-block
+      margin-right: 13px
+.copiright
+  @include fontStyle(13px, $gray)
+  text-align: center
+  padding: 30px 0
+
+
