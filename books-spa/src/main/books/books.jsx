@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import mockdata from './mockdata.json';
 import books from './books.css';
+import BooksItem from './books-item';
 
 class Books extends Component {
 	state = {
@@ -18,6 +19,7 @@ class Books extends Component {
 			expand: !expand,
 		});
 	};
+
 
 	/* сортировка по возрастанию и убыванию, использующая ключ объекта.
 	исключение для популярности, т.к. не строка */
@@ -51,19 +53,13 @@ class Books extends Component {
 		const { isLogged } = this.props;
 		const table = expand ? visibleBooks : visibleBooks.slice(0, 250);
 		return table.map(({ title, author, popularity }) => (
-			<tr key={Math.random()} className={books.rows}>
-				<td className={books.cells}>{title}</td>
-				<td className={books.cells}>{author}</td>
-				<td className={books.cells}>{popularity}</td>
-				{isLogged && (
-					<React.Fragment>
-						<td>
-							<button type="button">Добавить комментарий</button>
-						</td>
-					</React.Fragment>
-				)
-				}
-			</tr>
+			<BooksItem
+				title={title}
+				author={author}
+				popularity={popularity}
+				isLogged={isLogged}
+				key={Math.random()}
+			/>
 		));
 	}
 
